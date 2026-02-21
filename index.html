@@ -13,7 +13,7 @@
             --kinetic-orange: #f97316;
         }
         body {
-            font-family: 'Prompt', sans-serif;
+            font-family: 'Prompt', 'Outfit', sans-serif;
             background-color: var(--bg-darker);
             color: #f8fafc;
         }
@@ -32,235 +32,487 @@
             transform: translateY(-5px);
         }
         .glow-box-orange {
-            box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
+            box-shadow: 0 0 25px rgba(249, 115, 22, 0.15);
             transition: all 0.3s ease;
         }
         .glow-box-orange:hover {
-            box-shadow: 0 0 30px rgba(249, 115, 22, 0.25);
+            box-shadow: 0 0 40px rgba(249, 115, 22, 0.3);
             transform: translateY(-5px);
         }
+        .hidden-lang { display: none; }
     </style>
 </head>
 <body class="antialiased selection:bg-orange-500 selection:text-white">
 
-    <!-- Header / Hero Section -->
-    <header class="relative overflow-hidden pt-16 pb-12 px-4 sm:px-6 lg:px-8 text-center border-b border-slate-800">
+    <!-- Language Toggle Button (Fixed Position) -->
+    <div class="fixed top-4 right-4 sm:top-6 sm:right-8 z-50 flex items-center bg-slate-900/80 backdrop-blur-md rounded-full p-1 border border-slate-700 shadow-xl">
+        <button id="btn-th" onclick="switchLang('th')" class="px-4 py-1.5 rounded-full text-xs font-eng font-bold bg-blue-600 text-white shadow-lg shadow-blue-500/20 transition-all">TH</button>
+        <button id="btn-en" onclick="switchLang('en')" class="px-4 py-1.5 rounded-full text-xs font-eng font-bold text-slate-400 hover:text-white transition-all">EN</button>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 🇹🇭 THAI VERSION CONTENT                     -->
+    <!-- ========================================== -->
+    <div id="content-th" class="block">
         
-        <!-- Language Toggle Button -->
-        <div class="absolute top-4 right-4 sm:top-6 sm:right-8 z-50 flex items-center bg-slate-900/80 backdrop-blur-sm rounded-full p-1 border border-slate-700">
-            <a href="index.html" class="px-4 py-1.5 rounded-full text-xs font-eng font-bold bg-blue-600 text-white shadow-lg shadow-blue-500/20 transition-all">TH</a>
-            <a href="en.html" class="px-4 py-1.5 rounded-full text-xs font-eng font-bold text-slate-400 hover:text-white transition-all">EN</a>
-        </div>
+        <!-- Header / Hero Section (TH) -->
+        <header class="relative overflow-hidden pt-20 pb-12 px-4 sm:px-6 lg:px-8 text-center border-b border-slate-800">
+            <!-- Abstract Glow Background -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-20">
+                <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl opacity-50"></div>
+                <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl opacity-30"></div>
+            </div>
 
-        <!-- Abstract Glow Background -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-20">
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl opacity-50"></div>
-            <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl opacity-30"></div>
-        </div>
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <span class="inline-block py-1 px-4 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-sm font-eng font-semibold tracking-wider uppercase mb-4">
+                    AI-POWERED BUSINESS AUTOMATION
+                </span>
+                <h1 class="font-bold mb-4 leading-tight text-white">
+                    <span class="text-[1.65rem] sm:text-3xl md:text-4xl block mb-2 tracking-tight">เปลี่ยนการทำงานที่ล่าช้า ให้เป็นระบบอัตโนมัติ</span>
+                    <span class="gradient-text text-4xl md:text-5xl block">
+                        ลดต้นทุนและประหยัดเวลาด้วย<br>
+                        <span class="font-eng">AI & Google Workspace</span>
+                    </span>
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+                    บอกลางานซ้ำซ้อน, Human Error, ยกระดับการจัดการสต๊อก, แจ้งซ่อม ด้วย "Enterprise App และ Real-time Dashboard" เฉพาะองค์กรคุณผ่าน AppScript & AppSheet
+                </p>
+            </div>
+        </header>
 
-        <div class="relative z-10 max-w-4xl mx-auto">
-            <span class="inline-block py-1 px-4 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-sm font-eng font-semibold tracking-wider uppercase mb-4">
-                Smart Business Transformation
-            </span>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight text-white">
-                ยกระดับระบบหลังบ้าน<br>
-                และการทำงานสู่อัตโนมัติด้วย<br>
-                <span class="gradient-text font-eng">AI & Google Workspace</span>
-            </h1>
-            <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto font-light">
-                ครอบคลุมทุกมิติธุรกิจ: จัดการสต๊อก | แจ้งเครื่องจักรเสีย<br>
-                ระบบส่ง-ตรวจงาน | คำนวณอัตโนมัติ<br>
-                เปลี่ยนการทำงานที่ซ้ำซ้อนให้เป็นระบบ Real-time ด้วย AppScript & AppSheet
-            </p>
-        </div>
-    </header>
+        <!-- Pricing / Packages Section (TH) -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
 
-    <!-- Pricing / Packages Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-
-            <!-- Package 1 -->
-            <div class="bg-slate-900 rounded-2xl border border-slate-800 p-8 glow-box flex flex-col relative">
-                <div class="mb-6">
-                    <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-4 border border-blue-500/30">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white font-eng">AI Automation Workshop</h3>
-                    <p class="text-sm text-slate-400 mt-2">เรียนรู้ เข้าใจ สร้างระบบด้วยตัวเอง</p>
-                </div>
-                <div class="mb-6">
-                    <span class="text-3xl font-eng font-bold text-white">฿7,900</span>
-                    <span class="text-slate-500 text-sm"> (สำหรับ 1-2 ท่าน)</span>
-                </div>
-                <ul class="space-y-4 mb-8 flex-grow">
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <div class="text-slate-300 text-sm">
-                            เวิร์กชอป 1 วันเต็ม 
-                            <p class="text-xs text-slate-500 mt-1 leading-relaxed">*เพื่อให้ผู้สอนดูแลอย่างทั่วถึง รับสูงสุด 5 ท่าน/รอบ<br>(ท่านที่ 3-5 คิดเพิ่ม 1,500 บาท/ท่าน)</p>
+                <!-- Package 1 (TH) -->
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-8 glow-box flex flex-col relative">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-4 border border-blue-500/30">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                         </div>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-300 text-sm">ปูพื้นฐาน Database สำหรับระบบสต๊อก, แจ้งซ่อม ฯลฯ</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-300 text-sm">เทคนิค Prompt สั่ง AI เขียนสูตรและ AppScript</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-300 text-sm">แจกเอกสารและสูตร Prompt สำเร็จรูปพร้อมใช้</span>
-                    </li>
-                    <li class="flex items-start mt-4 bg-blue-900/30 p-3 rounded-lg border border-blue-500/30">
-                        <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-blue-300 text-sm font-medium">ระยะเวลา: 1 วัน<br>(พร้อมใช้งานหลังจบเวิร์กชอป)</span>
-                    </li>
-                </ul>
-                <div class="mt-auto pt-6 border-t border-slate-800">
-                    <p class="text-xs text-slate-400 bg-slate-800/50 p-3 rounded-lg border border-slate-700">
-                        <strong class="text-slate-200">เหมาะสำหรับ:</strong> องค์กรที่ต้องการเข้าใจ Logic เพื่อนำไปต่อยอดสร้างหรือปรับปรุงระบบอื่นๆ เอง
-                    </p>
+                        <h3 class="text-xl font-bold text-white font-eng">AI & Workflow Transformation Workshop</h3>
+                        <p class="text-sm text-slate-400 mt-2">ปลดล็อกศักยภาพทีมงาน สู่การสร้างระบบอัตโนมัติด้วยตัวคุณเอง</p>
+                    </div>
+                    <div class="mb-6 flex flex-wrap items-baseline gap-x-2">
+                        <span class="text-3xl font-bold text-white">เริ่มต้น <span class="font-eng">฿7,900</span></span>
+                        <span class="text-slate-500 text-sm">(สำหรับ 1-2 ท่าน)</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <div class="text-slate-300 text-sm">
+                                <span class="font-bold text-white">1-Day Intensive Masterclass:</span> เวิร์กชอปเข้มข้น 1 วันเต็ม พร้อมนำตรรกะไปประยุกต์ใช้ได้ทันที
+                                <p class="text-xs text-slate-500 mt-2 leading-relaxed">(หมายเหตุ: เพื่อประสิทธิภาพสูงสุด จำกัดผู้เข้าอบรมไม่เกิน 5 ท่าน/รอบ | ท่านที่ 3-5 ชำระเพิ่ม 1,500 บาท/ท่าน)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Database Architecture:</span> ปูพื้นฐานการออกแบบโครงสร้างฐานข้อมูลสำหรับธุรกิจ (เช่น ระบบสต๊อก, ระบบแจ้งซ่อม)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Advanced Prompt Engineering:</span> เทคนิคการสั่งงาน AI (Gemini) ระดับสูง เพื่อให้เขียนสูตรคำนวณและโค้ด AppScript แทนคุณ</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Exclusive Templates:</span> รับชุดเอกสารตั้งต้นและ "Prompt Framework" สำเร็จรูปที่ออกแบบมาเพื่องานองค์กรโดยเฉพาะ</span>
+                        </li>
+                        <li class="flex items-start mt-4 bg-blue-900/30 p-3 rounded-lg border border-blue-500/30">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-blue-300 text-sm font-medium">ระยะเวลา: 1 วัน<br><span class="text-xs">(พร้อมให้ทีมงานเริ่มสร้างระบบได้ทันทีหลังจบคลาส)</span></span>
+                        </li>
+                    </ul>
+                    <div class="mt-auto pt-6 border-t border-slate-800">
+                        <p class="text-xs text-slate-400 bg-slate-800/50 p-3 rounded-lg border border-slate-700 leading-relaxed">
+                            <strong class="text-slate-200">เหมาะสำหรับ:</strong> องค์กรที่ต้องการ Upskill พนักงานให้เป็น Citizen Developer เข้าใจ Logic การทำงาน เพื่อนำไปต่อยอดและปรับปรุงระบบต่างๆ ภายในองค์กรได้ด้วยตนเอง
+                        </p>
+                    </div>
                 </div>
+
+                <!-- Package 2 (POPULAR - TH) -->
+                <div class="bg-slate-900 rounded-2xl border-2 border-orange-500/60 p-8 glow-box-orange flex flex-col relative transform md:-translate-y-4">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg shadow-orange-500/40 flex items-center gap-1.5 border border-orange-300/30">
+                        <span>⭐ POPULAR - บริการยอดนิยม</span>
+                    </div>
+                    <div class="mb-6 mt-3">
+                        <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 mb-4 border border-orange-500/30">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-eng">Automated Business Operations System</h3>
+                        <p class="text-sm text-slate-400 mt-2">ระบบหลังบ้านอัตโนมัติ สั่งการและรายงานผลแบบ Real-time ตัดความผิดพลาดจากคน (Zero Human Error)</p>
+                    </div>
+                    <div class="mb-6 flex flex-wrap items-baseline gap-x-2">
+                        <span class="text-3xl font-bold text-white">เริ่มต้น <span class="font-eng">฿18,500</span></span>
+                        <span class="text-slate-500 text-sm">/ ระบบ</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Tailor-made Workflow:</span> ออกแบบและพัฒนาระบบเฉพาะทางที่สอดคล้องกับธุรกิจคุณ (เช่น ระบบจัดการงาน, ระบบคำนวณต้นทุน, ระบบตัดสต๊อก)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Smart AppScript Integration:</span> เขียนโค้ดประมวลผลขั้นสูง พร้อมผสานการแจ้งเตือนอัตโนมัติผ่าน Google Chat</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Executive Private Coaching:</span> บริการที่ปรึกษาแบบ 1:1 จับมือสอนการใช้งานจริงสำหรับทีมงานของคุณ (1 วันเต็ม)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-orange-400">Custom Prompt Guide:</span> รับคู่มือ "การสั่งงาน AI พิเศษ" ที่เขียนขึ้นมาเพื่อใช้กับระบบของบริษัทคุณโดยเฉพาะ</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Premium Care:</span> ฟรี! บริการดูแลและให้คำปรึกษาหลังการส่งมอบงานนาน 30 วัน</span>
+                        </li>
+                        <li class="flex items-start mt-4 bg-orange-900/20 p-3 rounded-lg border border-orange-500/30">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-orange-300 text-sm font-medium">ระยะเวลาส่งมอบ: 7 - 14 วัน</span>
+                        </li>
+                    </ul>
+                    <div class="mt-auto pt-6 border-t border-slate-800">
+                        <p class="text-xs text-slate-300 bg-orange-950/40 p-3 rounded-lg border border-orange-900/60 leading-relaxed">
+                            <strong class="text-orange-400">เหมาะสำหรับ:</strong> ธุรกิจที่ต้องการลดเวลาทำงานเอกสาร ต้องการระบบที่แม่นยำสูง รองรับการคำนวณที่ซับซ้อน และพร้อมใช้งานทันทีบนคอมพิวเตอร์ผ่าน Google Ecosystem
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Package 3 (TH) -->
+                <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl border border-slate-700 p-8 glow-box flex flex-col relative text-white">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                        <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </div>
+                    <div class="mb-6 relative z-10">
+                        <div class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-400 mb-4 border border-cyan-500/30">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-eng">Enterprise Mobile Application</h3>
+                        <p class="text-sm text-slate-400 mt-2">ดิจิทัลทรานส์ฟอร์มเมชันเต็มรูปแบบ ย่อระบบภาคสนามทั้งองค์กรไว้ในมือถือ</p>
+                    </div>
+                    <div class="mb-6 relative z-10 flex flex-wrap items-baseline gap-x-2">
+                        <span class="text-3xl font-eng font-bold text-white">฿25K - ฿35K</span>
+                        <span class="text-slate-500 text-sm">/ แอปพลิเคชัน</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Cross-Platform Application:</span> พัฒนาแอปพลิเคชันระดับองค์กรด้วย AppSheet ใช้งานได้ทันทีทั้งบน iOS และ Android</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Field Work Automation:</span> ฟังก์ชันครบจบสำหรับงานหน้างาน (ถ่ายรูปแจ้งซ่อม, สแกน QR Code/Barcode, และระบุพิกัด GPS อัตโนมัติ)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Role-based Access Control:</span> ระบบรักษาความปลอดภัยและจัดการสิทธิ์การเข้าถึงข้อมูล (แยกสิทธิ์พนักงานหน้างาน, ช่างเทคนิค, และผู้บริหารระดับสูง)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Real-time Dashboard & PDF:</span> อัปเดตสถานะงานแบบวินาทีต่อวินาที พร้อมระบบสร้างรายงาน (PDF) และแจ้งยอดอัตโนมัติ</span>
+                        </li>
+                        <li class="flex items-start mt-4 bg-cyan-900/20 p-3 rounded-lg border border-cyan-500/30">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-cyan-300 text-sm font-medium">ระยะเวลาส่งมอบ: 14 - 30 วัน</span>
+                        </li>
+                    </ul>
+                    <div class="mt-auto pt-6 border-t border-slate-700 relative z-10">
+                        <p class="text-xs text-slate-300 bg-slate-800/50 p-3 rounded-lg border border-slate-600 leading-relaxed">
+                            <strong class="text-cyan-400">เหมาะสำหรับ:</strong> ธุรกิจที่มีทีมงานภาคสนาม โรงงานอุตสาหกรรม คลังสินค้า หรือสายงานซ่อมบำรุง ที่ต้องการลดความล่าช้าในการส่งข้อมูล และต้องการให้ผู้บริหารติดตามงานได้จากทุกที่
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!-- END THAI VERSION -->
+
+
+    <!-- ========================================== -->
+    <!-- 🇬🇧 ENGLISH VERSION CONTENT                  -->
+    <!-- ========================================== -->
+    <div id="content-en" class="hidden-lang">
+        
+        <!-- Header / Hero Section (EN) -->
+        <header class="relative overflow-hidden pt-20 pb-12 px-4 sm:px-6 lg:px-8 text-center border-b border-slate-800">
+            <!-- Abstract Glow Background -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-20">
+                <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl opacity-50"></div>
+                <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl opacity-30"></div>
             </div>
 
-            <!-- Package 2 (Popular - Orange Focus) -->
-            <div class="bg-slate-900 rounded-2xl border-2 border-orange-500/50 p-8 glow-box-orange flex flex-col relative transform md:-translate-y-4">
-                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg shadow-orange-500/30">
-                    ยอดนิยม (Popular)
-                </div>
-                <div class="mb-6 mt-2">
-                    <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 mb-4 border border-orange-500/30">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white font-eng">Custom Workflow & System</h3>
-                    <p class="text-sm text-slate-400 mt-2">ระบบทำงานอัตโนมัติ ออกแบบเฉพาะคุณ</p>
-                </div>
-                <div class="mb-6">
-                    <span class="text-3xl font-eng font-bold text-white">฿18,500</span>
-                    <span class="text-slate-500 text-sm"> / ระบบ</span>
-                </div>
-                <ul class="space-y-4 mb-8 flex-grow">
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-200 text-sm font-medium">สร้างระบบเฉพาะทาง (ส่งงาน, คำนวณ, สต๊อก)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-300 text-sm">เขียน AppScript ประมวลผลและแจ้งเตือน LINE</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-300 text-sm">Private Coaching จับมือสอนการใช้งาน (1 วัน)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-orange-300 text-sm font-medium">รับ "คู่มือ Custom Prompt" สำหรับระบบคุณโดยเฉพาะ</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-300 text-sm">ฟรี! บริการดูแลหลังการส่งมอบ 30 วัน</span>
-                    </li>
-                    <li class="flex items-start mt-4 bg-orange-900/20 p-3 rounded-lg border border-orange-500/30">
-                        <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-orange-300 text-sm font-medium">ระยะเวลาส่งมอบ: 7 - 14 วัน</span>
-                    </li>
-                </ul>
-                <div class="mt-auto pt-6 border-t border-slate-800">
-                    <p class="text-xs text-slate-400 bg-orange-950/30 p-3 rounded-lg border border-orange-900/50">
-                        <strong class="text-orange-300">เหมาะสำหรับ:</strong> องค์กรที่ต้องการ "ระบบพร้อมใช้" ใช้งานบนคอมฯ/ฟอร์ม ต้องการความแม่นยำและการคำนวณซับซ้อน
-                    </p>
-                </div>
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <span class="inline-block py-1 px-4 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-sm font-eng font-semibold tracking-wider uppercase mb-4">
+                    AI-POWERED BUSINESS AUTOMATION
+                </span>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight text-white font-eng">
+                    Turn Slow Manual Workflows into Automated Systems.<br>
+                    <span class="gradient-text">Save Time & Reduce Costs with AI & Google Workspace.</span>
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+                    Eliminate manual tasks and human errors. Upgrade inventory, maintenance, and task management with custom Enterprise Apps and Real-time Dashboards via AppScript & AppSheet.
+                </p>
             </div>
+        </header>
 
-            <!-- Package 3 -->
-            <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl border border-slate-700 p-8 glow-box flex flex-col relative text-white">
-                <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                    <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                </div>
-                <div class="mb-6 relative z-10">
-                    <div class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-400 mb-4 border border-cyan-500/30">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+        <!-- Pricing / Packages Section (EN) -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+                <!-- Package 1 (EN) -->
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-8 glow-box flex flex-col relative">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-4 border border-blue-500/30">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-eng">AI & Workflow Transformation Workshop</h3>
+                        <p class="text-sm text-slate-400 mt-2">Empower your team to build and scale custom automated systems independently.</p>
                     </div>
-                    <h3 class="text-xl font-bold text-white font-eng">AppSheet Mobile App</h3>
-                    <p class="text-sm text-slate-400 mt-2">แอปฯแจ้งซ่อม ส่งงาน เช็คสต๊อก Real-time</p>
+                    <div class="mb-6 flex flex-wrap items-baseline gap-x-2">
+                        <span class="text-3xl font-eng font-bold text-white">Starting at ฿7,900</span>
+                        <span class="text-slate-500 text-sm">(For 1-2 attendees)</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <div class="text-slate-300 text-sm">
+                                <span class="font-bold text-white">1-Day Intensive Masterclass:</span> Actionable training focused on applying business logic to real-world operational scenarios.
+                                <p class="text-xs text-slate-500 mt-2 leading-relaxed">(Note: Max 5 attendees/session | +฿1,500/person for 3rd-5th attendee)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Database Architecture:</span> Fundamentals of designing structured databases for inventory, maintenance, and daily operations.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Advanced Prompt Engineering:</span> Master techniques to instruct AI (Gemini) to generate complex formulas and AppScript codes seamlessly.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Exclusive Templates:</span> Receive ready-to-use business frameworks and custom prompt templates tailored for enterprise needs.</span>
+                        </li>
+                        <li class="flex items-start mt-4 bg-blue-900/30 p-3 rounded-lg border border-blue-500/30">
+                            <svg class="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-blue-300 text-sm font-medium">Duration: 1 Day<br><span class="text-xs">(Ready to implement immediately post-workshop)</span></span>
+                        </li>
+                    </ul>
+                    <div class="mt-auto pt-6 border-t border-slate-800">
+                        <p class="text-xs text-slate-400 bg-slate-800/50 p-3 rounded-lg border border-slate-700 leading-relaxed">
+                            <strong class="text-slate-200">Best For:</strong> Organizations looking to upskill their workforce into Citizen Developers, understand system logic, and independently optimize internal workflows.
+                        </p>
+                    </div>
                 </div>
-                <div class="mb-6 relative z-10">
-                    <span class="text-3xl font-eng font-bold text-white">฿25K-35K</span>
+
+                <!-- Package 2 (POPULAR - EN) -->
+                <div class="bg-slate-900 rounded-2xl border-2 border-orange-500/60 p-8 glow-box-orange flex flex-col relative transform md:-translate-y-4">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg shadow-orange-500/40 flex items-center gap-1.5 border border-orange-300/30">
+                        <span>⭐ POPULAR</span>
+                    </div>
+                    <div class="mb-6 mt-3">
+                        <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 mb-4 border border-orange-500/30">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-eng">Automated Business Operations System</h3>
+                        <p class="text-sm text-slate-400 mt-2">Achieve Zero Human Error with a custom-built, real-time backend automated system.</p>
+                    </div>
+                    <div class="mb-6 flex flex-wrap items-baseline gap-x-2">
+                        <span class="text-3xl font-eng font-bold text-white">Starting at ฿18,500</span>
+                        <span class="text-slate-500 text-sm">/ System</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Tailor-Made Workflow:</span> Custom system design (Task Management, Automated Calculations, Inventory Control) perfectly aligned with your unique operations.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Smart AppScript Integration:</span> Advanced data processing paired with automated real-time notifications via LINE (LINE Notify).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Executive Private Coaching:</span> 1-on-1 hands-on training and onboarding session for your team (1 Full Day).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-orange-400">Custom Prompt Guide:</span> A personalized AI prompt manual designed exclusively to optimize your new system.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Premium Care:</span> 30 days of free post-delivery technical support and consultation.</span>
+                        </li>
+                        <li class="flex items-start mt-4 bg-orange-900/20 p-3 rounded-lg border border-orange-500/30">
+                            <svg class="w-5 h-5 text-orange-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-orange-300 text-sm font-medium">Delivery Time: 7 - 14 Days</span>
+                        </li>
+                    </ul>
+                    <div class="mt-auto pt-6 border-t border-slate-800">
+                        <p class="text-xs text-slate-300 bg-orange-950/40 p-3 rounded-lg border border-orange-900/60 leading-relaxed">
+                            <strong class="text-orange-400">Best For:</strong> Businesses seeking to eliminate manual paperwork with highly accurate, ready-to-use systems. Ideal for complex calculations and seamless deployment on PCs via the Google Workspace ecosystem.
+                        </p>
+                    </div>
                 </div>
-                <ul class="space-y-4 mb-8 flex-grow relative z-10">
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-300 text-sm">แอปพลิเคชันระบบองค์กร (iOS/Android)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-200 text-sm font-medium">ถ่ายรูปแจ้งซ่อม/สแกน QR/พิกัด GPS ครบจบ</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-300 text-sm">ระบบตรวจสอบสิทธิ์: ฝ่ายแจ้ง, ช่าง, ผู้บริหาร</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-300 text-sm">อัปเดตสถานะแบบ Real-time / สร้าง PDF แจ้งยอด</span>
-                    </li>
-                    <li class="flex items-start mt-4 bg-cyan-900/20 p-3 rounded-lg border border-cyan-500/30">
-                        <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-cyan-300 text-sm font-medium">ระยะเวลาส่งมอบ: 14 - 30 วัน</span>
-                    </li>
-                </ul>
-                <div class="mt-auto pt-6 border-t border-slate-700 relative z-10">
-                    <p class="text-xs text-slate-300 bg-slate-800/50 p-3 rounded-lg border border-slate-600">
-                        <strong class="text-cyan-400">เหมาะสำหรับ:</strong> ธุรกิจที่พนักงานหน้างานต้องถ่ายรูปแจ้งเครื่องจักรเสีย เดินเช็คคลัง หรืออัปเดตงานผ่านสมาร์ทโฟน
-                    </p>
+
+                <!-- Package 3 (EN) -->
+                <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl border border-slate-700 p-8 glow-box flex flex-col relative text-white">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                        <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </div>
+                    <div class="mb-6 relative z-10">
+                        <div class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-400 mb-4 border border-cyan-500/30">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-eng">Enterprise Mobile Application</h3>
+                        <p class="text-sm text-slate-400 mt-2">Complete digital transformation. Put your entire field operations into a single mobile app.</p>
+                    </div>
+                    <div class="mb-6 relative z-10 flex flex-wrap items-baseline gap-x-2">
+                        <span class="text-3xl font-eng font-bold text-white">฿25K - ฿35K</span>
+                        <span class="text-slate-500 text-sm">/ Application</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Cross-Platform Application:</span> Enterprise-grade AppSheet development, instantly deployable on both iOS and Android.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Field Work Automation:</span> Comprehensive features including photo reporting, QR/Barcode scanning, and automated GPS tracking.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Role-Based Access Control:</span> Secure data management with customized permission levels (Field Staff, Technicians, and C-Level Executives).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-300 text-sm"><span class="font-bold text-white">Real-time Dashboards & PDFs:</span> Second-by-second status updates combined with automated PDF report generation and routing.</span>
+                        </li>
+                        <li class="flex items-start mt-4 bg-cyan-900/20 p-3 rounded-lg border border-cyan-500/30">
+                            <svg class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-cyan-300 text-sm font-medium">Delivery Time: 14 - 30 Days</span>
+                        </li>
+                    </ul>
+                    <div class="mt-auto pt-6 border-t border-slate-700 relative z-10">
+                        <p class="text-xs text-slate-300 bg-slate-800/50 p-3 rounded-lg border border-slate-600 leading-relaxed">
+                            <strong class="text-cyan-400">Best For:</strong> Industries with field teams, manufacturing plants, warehouses, or maintenance crews needing to eliminate reporting delays and enable real-time executive tracking from anywhere.
+                        </p>
+                    </div>
                 </div>
+
             </div>
+        </section>
+    </div>
+    <!-- END ENGLISH VERSION -->
 
-        </div>
-    </section>
 
-    <!-- Footer CTA -->
-    <section class="text-center py-16 px-4 border-t border-slate-800 bg-slate-900 relative overflow-hidden">
-        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-full h-64 bg-blue-600/10 rounded-full filter blur-3xl pointer-events-none"></div>
-        <div class="relative z-10">
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">พร้อมที่จะ Transform ธุรกิจของคุณหรือยัง?</h2>
-            <p class="text-slate-400 mb-8 max-w-lg mx-auto">ติดต่อเราเพื่อนัดหมายประเมินความต้องการ<br>และเลือกแพ็กเกจที่เหมาะสมที่สุดฟรี!!</p>
-            
-            <a href="https://line.me/ti/p/DiJh8CqzvS" target="_blank" rel="noopener noreferrer" class="inline-block mb-10 bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-white font-eng font-semibold tracking-wide py-4 px-10 rounded-full shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] hover:-translate-y-1">
-                ปรึกษาเราฟรีทาง LINE (Free Consultation)
-            </a>
-
-            <!-- Contact Info Links -->
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-slate-400 font-eng">
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/krida-kaewmeun-391306295/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-blue-400 transition-colors duration-300 group">
-                    <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-blue-400 border border-slate-700 group-hover:border-blue-500/30 transition-all">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </div>
-                    <span class="text-sm tracking-wide">LinkedIn Profile</span>
-                </a>
+    <!-- Footer CTA (Shared Component - Text will change via JS or keep generic) -->
+    <!-- I will put the Footer directly into the TH and EN blocks to allow full translation of the footer too -->
+    <div id="footer-th" class="block">
+        <section class="text-center py-16 px-4 border-t border-slate-800 bg-slate-900 relative overflow-hidden">
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-full h-64 bg-blue-600/10 rounded-full filter blur-3xl pointer-events-none"></div>
+            <div class="relative z-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">พร้อมที่จะ Transform ธุรกิจของคุณหรือยัง?</h2>
+                <p class="text-slate-400 mb-8 max-w-lg mx-auto">ติดต่อเราเพื่อนัดหมายประเมินความต้องการ<br>และเลือกแพ็กเกจที่เหมาะสมที่สุดฟรี!!</p>
                 
-                <!-- Email -->
-                <a href="mailto:krida49@gmail.com" class="flex items-center gap-3 hover:text-orange-400 transition-colors duration-300 group">
-                    <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-orange-500/20 group-hover:text-orange-400 border border-slate-700 group-hover:border-orange-500/30 transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <span class="text-sm tracking-wide">krida49@gmail.com</span>
+                <a href="https://line.me/ti/p/DiJh8CqzvS" target="_blank" rel="noopener noreferrer" class="inline-block mb-10 bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-white font-eng font-semibold tracking-wide py-4 px-10 rounded-full shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] hover:-translate-y-1">
+                    ปรึกษาเราฟรีทาง LINE
                 </a>
 
-                <!-- Phone -->
-                <a href="tel:+66658928993" class="flex items-center gap-3 hover:text-cyan-400 transition-colors duration-300 group">
-                    <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-cyan-500/20 group-hover:text-cyan-400 border border-slate-700 group-hover:border-cyan-500/30 transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                    </div>
-                    <span class="text-sm tracking-wide">+66 65 892 8993</span>
-                </a>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-slate-400 font-eng">
+                    <a href="https://www.linkedin.com/in/krida-kaewmeun-391306295/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-blue-400 transition-colors duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-blue-400 border border-slate-700 group-hover:border-blue-500/30 transition-all">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </div>
+                        <span class="text-sm tracking-wide">LinkedIn Profile</span>
+                    </a>
+                    <a href="mailto:krida49@gmail.com" class="flex items-center gap-3 hover:text-orange-400 transition-colors duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-orange-500/20 group-hover:text-orange-400 border border-slate-700 group-hover:border-orange-500/30 transition-all">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <span class="text-sm tracking-wide">krida49@gmail.com</span>
+                    </a>
+                    <a href="tel:+66658928993" class="flex items-center gap-3 hover:text-cyan-400 transition-colors duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-cyan-500/20 group-hover:text-cyan-400 border border-slate-700 group-hover:border-cyan-500/30 transition-all">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <span class="text-sm tracking-wide">+66 65 892 8993</span>
+                    </a>
+                </div>
+                <p class="mt-12 text-xs text-slate-600 font-eng font-light tracking-widest uppercase">KRIDA. Logic Meets Magic.</p>
             </div>
+        </section>
+    </div>
 
-            <p class="mt-12 text-xs text-slate-600 font-eng font-light tracking-widest uppercase">KRIDA. Logic Meets Magic.</p>
-        </div>
-    </section>
+    <div id="footer-en" class="hidden-lang">
+        <section class="text-center py-16 px-4 border-t border-slate-800 bg-slate-900 relative overflow-hidden">
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-full h-64 bg-blue-600/10 rounded-full filter blur-3xl pointer-events-none"></div>
+            <div class="relative z-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Transform Your Business?</h2>
+                <p class="text-slate-400 mb-8 max-w-lg mx-auto">Contact us to schedule a needs assessment<br>and choose the perfect package for free!!</p>
+                
+                <a href="https://line.me/ti/p/DiJh8CqzvS" target="_blank" rel="noopener noreferrer" class="inline-block mb-10 bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-white font-eng font-semibold tracking-wide py-4 px-10 rounded-full shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] hover:-translate-y-1">
+                    Free Consultation via LINE
+                </a>
 
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-slate-400 font-eng">
+                    <a href="https://www.linkedin.com/in/krida-kaewmeun-391306295/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-blue-400 transition-colors duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:text-blue-400 border border-slate-700 group-hover:border-blue-500/30 transition-all">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </div>
+                        <span class="text-sm tracking-wide">LinkedIn Profile</span>
+                    </a>
+                    <a href="mailto:krida49@gmail.com" class="flex items-center gap-3 hover:text-orange-400 transition-colors duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-orange-500/20 group-hover:text-orange-400 border border-slate-700 group-hover:border-orange-500/30 transition-all">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <span class="text-sm tracking-wide">krida49@gmail.com</span>
+                    </a>
+                    <a href="tel:+66658928993" class="flex items-center gap-3 hover:text-cyan-400 transition-colors duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-cyan-500/20 group-hover:text-cyan-400 border border-slate-700 group-hover:border-cyan-500/30 transition-all">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <span class="text-sm tracking-wide">+66 65 892 8993</span>
+                    </a>
+                </div>
+                <p class="mt-12 text-xs text-slate-600 font-eng font-light tracking-widest uppercase">KRIDA. Logic Meets Magic.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Language Toggle Script -->
+    <script>
+        function switchLang(lang) {
+            const contentTh = document.getElementById('content-th');
+            const contentEn = document.getElementById('content-en');
+            const footerTh = document.getElementById('footer-th');
+            const footerEn = document.getElementById('footer-en');
+            const btnTh = document.getElementById('btn-th');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'th') {
+                contentTh.style.display = 'block';
+                footerTh.style.display = 'block';
+                contentEn.style.display = 'none';
+                footerEn.style.display = 'none';
+                
+                // Update Button Styles
+                btnTh.classList.add('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-500/20');
+                btnTh.classList.remove('text-slate-400');
+                btnEn.classList.remove('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-500/20');
+                btnEn.classList.add('text-slate-400');
+            } else {
+                contentEn.style.display = 'block';
+                footerEn.style.display = 'block';
+                contentTh.style.display = 'none';
+                footerTh.style.display = 'none';
+
+                // Update Button Styles
+                btnEn.classList.add('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-500/20');
+                btnEn.classList.remove('text-slate-400');
+                btnTh.classList.remove('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-500/20');
+                btnTh.classList.add('text-slate-400');
+            }
+        }
+    </script>
 </body>
 </html>
