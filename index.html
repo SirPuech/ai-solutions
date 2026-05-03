@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KRIDA. | Logic Meets Magic</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- เปลี่ยน Font ภาษาอังกฤษเป็น Montserrat และภาษาไทยเป็น Prompt -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -27,7 +26,6 @@
     <style>
         body { font-family: 'Prompt', sans-serif; background-color: #0F172A; color: #F8FAFC; }
         .font-eng { font-family: 'Montserrat', sans-serif; }
-        /* ปรับ Gradient ให้เฟดจาก ส้ม ไป น้ำเงิน */
         .gradient-text { background: linear-gradient(90deg, #F97316, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); }
         .glow-box:hover { box-shadow: 0 0 25px rgba(37, 99, 235, 0.2); transform: translateY(-5px); transition: all 0.3s ease; }
@@ -36,6 +34,9 @@
         /* Language Toggle Logic */
         body[data-lang="th"] .lang-en { display: none !important; }
         body[data-lang="en"] .lang-th { display: none !important; }
+        
+        /* Showreel Flex Transition */
+        .showreel-card { transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1); }
     </style>
 </head>
 <body class="overflow-x-hidden antialiased" data-lang="th">
@@ -50,9 +51,10 @@
             <a href="#techstack" class="hover:text-white transition-colors"><span class="lang-th">เครื่องมือ</span><span class="lang-en">Tech Stack</span></a>
         </div>
         <div class="flex items-center gap-4">
+            <!-- แก้ไขปุ่มสลับภาษา ซ่อน | ที่เกินมา -->
             <button onclick="toggleLanguage()" class="bg-slate-800 hover:bg-slate-700 px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-slate-600 font-eng">
-                <span class="lang-th text-techblue">TH</span> <span class="text-slate-500">|</span> <span class="lang-th text-slate-400">EN</span>
-                <span class="lang-en text-slate-400">TH</span> <span class="text-slate-500">|</span> <span class="lang-en text-techblue">EN</span>
+                <span class="lang-th"><span class="text-techblue">TH</span> <span class="text-slate-500 mx-1">|</span> <span class="text-slate-400">EN</span></span>
+                <span class="lang-en"><span class="text-slate-400">TH</span> <span class="text-slate-500 mx-1">|</span> <span class="text-techblue">EN</span></span>
             </button>
             <a href="#contact" class="hidden sm:block bg-kinetic hover:bg-orange-600 px-5 py-2 rounded-full text-sm font-bold transition-all text-white">
                 <span class="lang-th">ติดต่อเรา</span><span class="lang-en">Contact Us</span>
@@ -65,7 +67,9 @@
         <div class="absolute -z-10 w-[500px] h-[500px] bg-techblue/20 blur-[120px] rounded-full top-1/4 -left-20"></div>
         <div class="absolute -z-10 w-[400px] h-[400px] bg-kinetic/10 blur-[100px] rounded-full bottom-1/4 -right-20"></div>
         
-        <h2 class="text-kinetic font-bold tracking-widest text-sm mb-4 uppercase font-eng border border-kinetic/30 bg-kinetic/10 px-4 py-1 rounded-full inline-block">Logic Meets Magic</h2>
+        <!-- แก้ไข Sub-header -->
+        <h2 class="text-kinetic font-bold tracking-widest text-sm mb-4 uppercase font-eng border border-kinetic/30 bg-kinetic/10 px-4 py-1 rounded-full inline-block">Creative Technologist & Business Architect</h2>
+        
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tighter font-eng">
             KRIDA<span class="text-kinetic">.</span> <span class="gradient-text">Solutions</span>
         </h1>
@@ -100,15 +104,15 @@
                     <ul class="space-y-4 border-l-2 border-slate-700 pl-6 mt-8">
                         <li class="relative">
                             <div class="absolute -left-[31px] top-1 w-4 h-4 bg-onyx border-2 border-techblue rounded-full"></div>
-                            <strong class="text-white block font-eng">Business & Corporate Sales (4+ Years)</strong>
+                            <strong class="text-white block font-eng">Business & Corporate Sales (3+ Years)</strong>
                             <span class="lang-th text-slate-400">ประสบการณ์ในบริษัท Trading ของญี่ปุ่น ดูแลระบบการขายตั้งแต่หา Leads จนจบการขาย นำเข้า-ส่งออก-OEM ครอบคลุมหลากหลายอุตสาหกรรม ปัจจุบันเป็น <strong>Google Workspace Sales Executive</strong> นำเทคโนโลยีและ AI เข้าไป Transform องค์กรตั้งแต่ระดับ SMB จนถึง Enterprise</span>
                             <span class="lang-en text-slate-400">Experience in a Japanese Trading firm managing full-cycle sales, Import-Export, and OEM across industries. Currently a <strong>Google Workspace Sales Executive</strong>, leveraging tech and AI to transform SMBs and Enterprises.</span>
                         </li>
                         <li class="relative">
                             <div class="absolute -left-[31px] top-1 w-4 h-4 bg-onyx border-2 border-kinetic rounded-full"></div>
                             <strong class="text-white block font-eng">Creative & Scale Design</strong>
-                            <span class="lang-th text-slate-400">เริ่มต้นการทำงานด้าน Motion Graphics Designer และ Stage Lighting Design สำหรับงานสเกล 2,000-10,000 คนมากว่า 4 ปีจนถึงปัจจุบัน ทำให้ผมให้ความสำคัญกับ User Experience (UX/UI) ในทุกระบบที่สร้าง</span>
-                            <span class="lang-en text-slate-400">Began working as a Motion Graphics and Stage Lighting Designer for large-scale events (2k-10k audiences) for 4 years+. This background ensures every system I build prioritizes exceptional User Experience (UX/UI).</span>
+                            <span class="lang-th text-slate-400">เริ่มต้นการทำงานด้าน Motion Graphics Designer และ Stage Lighting Design สำหรับงานสเกล 2,000-10,000 คนมาตั้งแต่สมัยเรียนมหาวิทยาลัยปี 4 จนถึงปัจจุบัน ทำให้ผมให้ความสำคัญกับ User Experience (UX/UI) ในทุกระบบที่สร้าง</span>
+                            <span class="lang-en text-slate-400">Began working as a Motion Graphics and Stage Lighting Designer for large-scale events (2k-10k audiences) since university. This background ensures every system I build prioritizes exceptional User Experience (UX/UI).</span>
                         </li>
                         <li class="relative">
                             <div class="absolute -left-[31px] top-1 w-4 h-4 bg-onyx border-2 border-blue-400 rounded-full"></div>
@@ -144,7 +148,6 @@
                                 <p class="text-sm text-slate-400"><span class="lang-th">ระบบหลังบ้านไม่จำเป็นต้องใช้งานยากและดูน่าเบื่อ เราใส่ใจเรื่องหน้าตาให้พนักงานอยากใช้งาน</span><span class="lang-en font-eng">Backend systems don't have to be ugly and hard to use. We care about the interface.</span></p>
                             </div>
                         </div>
-                        <!-- เพิ่มหัวข้อที่ 3 ตามที่ระบุ -->
                         <div class="flex items-start gap-4">
                             <div class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
@@ -160,7 +163,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section (เรียงราคา 5K -> 18.5K -> 25K) -->
     <section id="services" class="py-24 px-6 bg-slate-900/50 border-t border-slate-800">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
@@ -171,16 +174,29 @@
                 </p>
             </div>
 
-            <!-- ปรับเป็น 3 คอลัมน์เพราะตัด Workshop ออก -->
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Service 1 -->
+                <!-- Service 1: Web App & Backend (5,000) -->
+                <div class="glass-card p-8 rounded-2xl glow-box flex flex-col border border-slate-700">
+                    <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 font-eng">Web App & Backend</h3>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow">
+                        <span class="lang-th">ระบบทำใบเสนอราคา ระบบหลังบ้านบริษัท เว็บแอปขนาดเล็ก PDF Generator หรือ Dashboard ย่อมเยา (พัฒนาด้วยเทคโนโลยีที่หลากหลาย ไม่จำกัดแค่ Google)</span>
+                        <span class="lang-en">Quotation systems, company backends, small web apps, PDF generators, or mini dashboards (Flexible tech stack).</span>
+                    </p>
+                    <div class="mt-auto pt-4 border-t border-slate-700">
+                        <span class="text-emerald-400 font-bold font-eng text-lg"><span class="lang-th text-sm font-normal text-slate-400 font-prompt">เริ่มต้น</span> Starts ฿5,000</span>
+                    </div>
+                </div>
+
+                <!-- Service 2: Custom Mini ERP (18,500) -->
                 <div class="glass-card p-8 rounded-2xl glow-box flex flex-col border border-slate-700">
                     <div class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3 font-eng">Custom Mini ERP & Workflow</h3>
                     <p class="text-sm text-slate-400 mb-6 flex-grow">
-                        <!-- แก้ไขแจ้งเตือนเป็น Email -->
                         <span class="lang-th">สร้างระบบหลังบ้านอัตโนมัติบน Google Workspace (AppScript) ประมวลผลและคำนวณซับซ้อน พร้อมแจ้งเตือนผ่าน Email ทันที</span>
                         <span class="lang-en">Build automated backend workflows via Google Workspace (AppScript) with complex logic & automated Email alerts.</span>
                     </p>
@@ -189,7 +205,7 @@
                     </div>
                 </div>
 
-                <!-- Service 2 -->
+                <!-- Service 3: AppSheet Mobile & Web App (25,000) -->
                 <div class="glass-card p-8 rounded-2xl glow-box-orange flex flex-col border border-orange-500/30 relative">
                     <div class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wider font-eng">Popular</div>
                     <div class="w-12 h-12 bg-orange-500/20 text-orange-400 rounded-xl flex items-center justify-center mb-6">
@@ -204,104 +220,92 @@
                         <span class="text-kinetic font-bold font-eng text-lg"><span class="lang-th text-sm font-normal text-slate-400 font-prompt">เริ่มต้น</span> Starts ฿25,000</span>
                     </div>
                 </div>
-
-                <!-- Service 3 -->
-                <div class="glass-card p-8 rounded-2xl glow-box flex flex-col border border-slate-700">
-                    <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3 font-eng">BI & Data Analytics</h3>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow">
-                        <span class="lang-th">วางโครงสร้างข้อมูลและสร้าง Interactive Dashboard (Looker Studio) สำหรับผู้บริหาร</span>
-                        <span class="lang-en">Data architecture mapping and interactive Executive Dashboards via Looker Studio.</span>
-                    </p>
-                    <div class="mt-auto pt-4 border-t border-slate-700">
-                        <span class="text-emerald-400 font-bold font-eng text-lg"><span class="lang-th text-sm font-normal text-slate-400 font-prompt">เริ่มต้น</span> Starts ฿12,000</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 px-6 max-w-7xl mx-auto border-t border-slate-800">
+    <!-- Portfolio Section (Interactive Showreel) -->
+    <section id="portfolio" class="py-24 px-4 sm:px-6 max-w-[1400px] mx-auto border-t border-slate-800">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 font-eng">Featured <span class="text-kinetic">Works</span></h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 font-eng">Interactive <span class="text-kinetic">Showreel</span></h2>
             <p class="text-slate-400 max-w-2xl mx-auto">
-                <span class="lang-th">ตัวอย่างระบบที่ออกแบบมาเพื่อลดเวลาทำงาน และเพิ่มความแม่นยำให้ธุรกิจ</span>
-                <span class="lang-en">Sample systems designed to reduce manual workload and increase business accuracy.</span>
+                <span class="lang-th">เลื่อนเมาส์หรือกดสัมผัสเพื่อดูรายละเอียดผลงาน (Hover / Tap to expand)</span>
+                <span class="lang-en">Hover or tap on the project to view more details.</span>
             </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Project 1 -->
-            <div class="bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden group">
-                <div class="h-48 bg-slate-800 flex items-center justify-center relative overflow-hidden">
-                    <div class="absolute inset-0 bg-blue-500/10 group-hover:bg-blue-500/20 transition-all"></div>
-                    <div class="text-center px-4">
-                        <svg class="w-12 h-12 mx-auto text-blue-400 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-xs text-blue-300 font-eng tracking-widest">[ 🎬 Insert GIF / Video Preview ]</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <span class="text-xs font-bold text-techblue uppercase tracking-wider mb-2 block font-eng">Office / SME Workflow</span>
-                    <h3 class="text-xl font-bold text-white mb-2 font-eng">Paperless Approval System</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        <span class="lang-th">ระบบขออนุมัติเบิกจ่ายออนไลน์ ผู้บริหารกด Approve ผ่านอีเมลได้ทันที ระบบสร้าง PDF อัตโนมัติ ลดการใช้กระดาษ 100%</span>
-                        <span class="lang-en">Online approval workflow. Executives approve via email. Auto-generates PDF certificates, achieving 100% paperless operation.</span>
-                    </p>
-                    <div class="flex gap-2 text-xs font-eng text-slate-500">
-                        <span class="bg-slate-800 px-2 py-1 rounded">AppScript</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">HTML/CSS</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden group">
-                <div class="h-48 bg-slate-800 flex items-center justify-center relative overflow-hidden">
-                    <div class="absolute inset-0 bg-orange-500/10 group-hover:bg-orange-500/20 transition-all"></div>
-                    <div class="text-center px-4">
-                        <svg class="w-12 h-12 mx-auto text-orange-400 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                        <span class="text-xs text-orange-300 font-eng tracking-widest">[ 📱 Insert AppSheet Mockup ]</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <span class="text-xs font-bold text-kinetic uppercase tracking-wider mb-2 block font-eng">Industry / Trading</span>
-                    <h3 class="text-xl font-bold text-white mb-2 font-eng">Smart Inventory & PO Mobile App</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        <span class="lang-th">แอปพลิเคชันจัดการคลังสินค้า สแกน Barcode รับ-จ่ายของได้จากหน้างาน พร้อมระบบแจ้งเตือน Email เมื่อของใกล้หมด (Reorder Point)</span>
-                        <span class="lang-en">Warehouse management app. Scan barcodes onsite, track real-time stock, and trigger automatic Email alerts when stock hits reorder points.</span>
-                    </p>
-                    <div class="flex gap-2 text-xs font-eng text-slate-500">
-                        <span class="bg-slate-800 px-2 py-1 rounded">AppSheet</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">Google Sheets</span>
+        <!-- Showreel Flex Container -->
+        <div class="flex flex-col md:flex-row gap-4 h-[900px] md:h-[500px] w-full">
+            
+            <!-- Project 1: Capsule Bed -->
+            <div class="showreel-card group relative flex-1 hover:flex-[2.5] md:min-w-[120px] rounded-3xl overflow-hidden border border-slate-700 hover:border-emerald-500/50 cursor-pointer">
+                <!-- ใส่ชื่อไฟล์รูปของคุณแทนลิงก์นี้ เช่น src="./images/capsule-bed.jpg" -->
+                <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=800&q=80" alt="Capsule Bed UI" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/70 to-transparent group-hover:from-slate-900/90 group-hover:via-slate-900/20 transition-all duration-500"></div>
+                
+                <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end h-full">
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2 font-eng opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">Web App / Multi-language</span>
+                    <h3 class="text-xl md:text-2xl font-bold text-white font-eng line-clamp-1 group-hover:line-clamp-none transition-all duration-500 mb-2">Capsule Bed Layout Calculator</h3>
+                    
+                    <div class="opacity-100 md:opacity-0 group-hover:opacity-100 max-h-[200px] md:max-h-0 group-hover:max-h-[200px] overflow-hidden transition-all duration-700 ease-in-out">
+                        <p class="text-sm text-slate-300 mb-4 line-clamp-3">
+                            <span class="lang-th">เว็บไซต์คำนวณพื้นที่จัดวางเตียง Capsule Bed อัตโนมัติ รองรับการใช้งาน 3 ภาษา (ไทย, อังกฤษ, ญี่ปุ่น) เพื่อให้บริการผู้ใช้งานได้อย่างไร้รอยต่อ</span>
+                            <span class="lang-en">Automated Capsule Bed layout calculation website. Fully supports 3 languages (Thai, English, Japanese) for a seamless user experience.</span>
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-eng text-slate-400">
+                            <span class="bg-slate-800/80 backdrop-blur border border-slate-700 px-3 py-1 rounded-full">Web Tech</span>
+                            <span class="bg-slate-800/80 backdrop-blur border border-slate-700 px-3 py-1 rounded-full">Localization</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 3 -->
-            <div class="bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden group">
-                <div class="h-48 bg-slate-800 flex items-center justify-center relative overflow-hidden">
-                    <div class="absolute inset-0 bg-emerald-500/10 group-hover:bg-emerald-500/20 transition-all"></div>
-                    <div class="text-center px-4">
-                        <svg class="w-12 h-12 mx-auto text-emerald-400 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        <span class="text-xs text-emerald-300 font-eng tracking-widest">[ 📊 Insert Dashboard Image/Link ]</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2 block font-eng">Executive / SME</span>
-                    <h3 class="text-xl font-bold text-white mb-2 font-eng">Interactive Sales Dashboard</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        <span class="lang-th">ดึงข้อมูลดิบจากหลายแหล่งมาคลีนและสร้าง Dashboard สรุปยอดขาย อัตรากำไร และ KPI สำหรับผู้บริหาร ดึงข้อมูล Real-time</span>
-                        <span class="lang-en">Automated data pipeline transforming raw data into an interactive Executive Dashboard tracking sales, margins, and real-time KPIs.</span>
-                    </p>
-                    <div class="flex gap-2 text-xs font-eng text-slate-500">
-                        <span class="bg-slate-800 px-2 py-1 rounded">Looker Studio</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">SQL / Query</span>
+            <!-- Project 2: Paperless Approval -->
+            <div class="showreel-card group relative flex-1 hover:flex-[2.5] md:min-w-[120px] rounded-3xl overflow-hidden border border-slate-700 hover:border-techblue/50 cursor-pointer">
+                <!-- ใส่ชื่อไฟล์รูปของคุณแทนลิงก์นี้ เช่น src="./images/approval.jpg" -->
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Paperless Approval" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/70 to-transparent group-hover:from-slate-900/90 group-hover:via-slate-900/20 transition-all duration-500"></div>
+                
+                <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end h-full">
+                    <span class="text-xs font-bold text-techblue uppercase tracking-wider mb-2 font-eng opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">Office / SME Workflow</span>
+                    <h3 class="text-xl md:text-2xl font-bold text-white font-eng line-clamp-1 group-hover:line-clamp-none transition-all duration-500 mb-2">Paperless Approval System</h3>
+                    
+                    <div class="opacity-100 md:opacity-0 group-hover:opacity-100 max-h-[200px] md:max-h-0 group-hover:max-h-[200px] overflow-hidden transition-all duration-700 ease-in-out">
+                        <p class="text-sm text-slate-300 mb-4 line-clamp-3">
+                            <span class="lang-th">ระบบขออนุมัติเบิกจ่ายออนไลน์ ผู้บริหารกด Approve ผ่านอีเมลได้ทันที ระบบสร้าง PDF อัตโนมัติ ลดการใช้กระดาษ 100%</span>
+                            <span class="lang-en">Online approval workflow. Executives approve via email. Auto-generates PDF certificates, achieving 100% paperless operation.</span>
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-eng text-slate-400">
+                            <span class="bg-slate-800/80 backdrop-blur border border-slate-700 px-3 py-1 rounded-full">AppScript</span>
+                            <span class="bg-slate-800/80 backdrop-blur border border-slate-700 px-3 py-1 rounded-full">HTML/CSS</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Project 3: Smart Inventory -->
+            <div class="showreel-card group relative flex-1 hover:flex-[2.5] md:min-w-[120px] rounded-3xl overflow-hidden border border-slate-700 hover:border-kinetic/50 cursor-pointer">
+                <!-- ใส่ชื่อไฟล์รูปของคุณแทนลิงก์นี้ เช่น src="./images/inventory.jpg" -->
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Smart Inventory" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/70 to-transparent group-hover:from-slate-900/90 group-hover:via-slate-900/20 transition-all duration-500"></div>
+                
+                <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end h-full">
+                    <span class="text-xs font-bold text-kinetic uppercase tracking-wider mb-2 font-eng opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">Industry / Trading</span>
+                    <h3 class="text-xl md:text-2xl font-bold text-white font-eng line-clamp-1 group-hover:line-clamp-none transition-all duration-500 mb-2">Smart Inventory Mobile App</h3>
+                    
+                    <div class="opacity-100 md:opacity-0 group-hover:opacity-100 max-h-[200px] md:max-h-0 group-hover:max-h-[200px] overflow-hidden transition-all duration-700 ease-in-out">
+                        <p class="text-sm text-slate-300 mb-4 line-clamp-3">
+                            <span class="lang-th">แอปพลิเคชันจัดการคลังสินค้า สแกน Barcode รับ-จ่ายของได้จากหน้างาน พร้อมระบบแจ้งเตือน Email เมื่อของใกล้หมด</span>
+                            <span class="lang-en">Warehouse management app. Scan barcodes onsite, track real-time stock, and trigger automatic Email alerts.</span>
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-eng text-slate-400">
+                            <span class="bg-slate-800/80 backdrop-blur border border-slate-700 px-3 py-1 rounded-full">AppSheet</span>
+                            <span class="bg-slate-800/80 backdrop-blur border border-slate-700 px-3 py-1 rounded-full">Google Sheets</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -374,8 +378,8 @@
                 <span class="lang-en">Discuss your workflow challenges or inquire about service packages.<br>Free consultation, no commitments.</span>
             </p>
             
-            <!-- Main CTA (LINE) -->
-            <a href="https://line.me/ti/p/DiJh8CqzvS" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-3 bg-kinetic text-white hover:bg-orange-600 px-10 py-5 rounded-full font-bold transition-all shadow-xl shadow-kinetic/20 text-lg mb-12">
+            <!-- Main CTA (Plain Text Link to LINE) -->
+            <a href="https://line.me/ti/p/DiJh8CqzvS" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-kinetic text-white hover:bg-orange-600 px-10 py-5 rounded-full font-bold transition-all shadow-xl shadow-kinetic/20 text-lg mb-12">
                 <span class="lang-th">ติดต่อเรา</span><span class="lang-en font-eng">Contact Us</span>
             </a>
 
